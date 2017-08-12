@@ -3,9 +3,9 @@ package org.seleniumhq.example.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.seleniumhq.example.model.Page;
+import org.seleniumhq.example.model.AbstractPage;
 
-public class FacebookPage extends Page {
+public class FacebookPage extends AbstractPage {
 
     @FindBy(name="email")
     private WebElement userEmailElement;
@@ -21,7 +21,7 @@ public class FacebookPage extends Page {
 
     public FacebookPage(WebDriver webDriver) {
         super(webDriver);
-        PAGE_URL = "https://www.facebook.com/";
+        PAGE_URL = "https://www.facebook.com";
     }
 
     public void setUserEmail(String userEmail) {

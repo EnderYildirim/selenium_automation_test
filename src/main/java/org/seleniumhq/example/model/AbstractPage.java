@@ -3,13 +3,13 @@ package org.seleniumhq.example.model;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public abstract class Page {
+public abstract class AbstractPage {
 
     private WebDriver webDriver;
 
     protected String PAGE_URL;
 
-    public Page(WebDriver webDriver) {
+    public AbstractPage(WebDriver webDriver) {
         this.webDriver = webDriver;
 
         //Initialize Page Elements
