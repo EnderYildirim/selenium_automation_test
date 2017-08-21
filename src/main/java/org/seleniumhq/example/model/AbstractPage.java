@@ -1,20 +1,14 @@
 package org.seleniumhq.example.model;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class AbstractPage {
 
+	@Autowired
     private WebDriver webDriver;
 
     protected String PAGE_URL;
-
-    public AbstractPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-
-        //Initialize Page Elements
-        PageFactory.initElements(webDriver, this);
-    }
 
     public void openPage() {
         webDriver.get(PAGE_URL);
