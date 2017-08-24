@@ -1,4 +1,4 @@
-package org.seleniumhq.example.model;
+package org.seleniumhq.example.conf;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

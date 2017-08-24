@@ -1,4 +1,4 @@
-package org.seleniumhq.example.model;
+package org.seleniumhq.example.conf;
 
 import java.util.Collections;
 import java.util.HashMap;

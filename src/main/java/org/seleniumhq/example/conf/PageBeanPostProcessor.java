@@ -1,7 +1,8 @@
-package org.seleniumhq.example.model;
+package org.seleniumhq.example.conf;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.seleniumhq.example.model.Page;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
