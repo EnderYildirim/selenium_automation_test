@@ -1,42 +1,54 @@
 package org.seleniumhq.example.pages;
 
-import org.openqa.selenium.WebDriver;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.seleniumhq.example.model.AbstractPage;
+import org.seleniumhq.example.model.AbstractWebPage;
+import org.seleniumhq.example.model.Page;
 
-public class FacebookPage extends AbstractPage {
+@Page
+public class FacebookPage extends AbstractWebPage {
 
-    @FindBy(name="email")
+    @FindBy(name = "email")
     private WebElement userEmailElement;
-    
-    @FindBy(name="pass")
+
+    @FindBy(name = "pass")
     private WebElement userPassElement;
-    
-    @FindBy(xpath="//label[@id='loginbutton']")
+
+    @FindBy(xpath = "//label[@id='loginbutton']")
     private WebElement loginButton;
-    
-    @FindBy(linkText="Welcome")
+
+    @FindBy(partialLinkText = "Welcome")
     private WebElement welcomeText;
 
-    public FacebookPage(WebDriver webDriver) {
-        super(webDriver);
-        PAGE_URL = "https://www.facebook.com";
+    public FacebookPage() {
     }
 
-    public void setUserEmail(String userEmail) {
+    public FacebookPage setUserEmail(String userEmail) {
+        userEmailElement.clear();
         userEmailElement.sendKeys(userEmail);
+        return this;
     }
-    
-    public void setUserPassword(String userPass) {
+
+    public FacebookPage setUserPassword(String userPass) {
+        userPassElement.clear();
         userPassElement.sendKeys(userPass);
+        return this;
     }
-    
-    public void clickLogIn() {
+
+    public FacebookPage clickLogIn() {
         loginButton.click();
+        return this;
     }
-    
-    public boolean isLoggedIn() {
-        return welcomeText.isEnabled();
+
+    public FacebookPage isLoggedIn() {
+        Assert.assertTrue(welcomeText.isEnabled());
+        return this;
+    }
+
+    @Override
+    public FacebookPage openPage() {
+        webDriver.get("https://www.facebook.com");
+        return this;
     }
 }
