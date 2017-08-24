@@ -13,6 +13,7 @@ public class PageBeanPostProcessor implements BeanPostProcessor {
 	@Autowired
 	private WebDriver driver;
 
+	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 		if (bean.getClass().isAnnotationPresent(Page.class)) {
 			PageFactory.initElements(driver, bean);
@@ -20,6 +21,7 @@ public class PageBeanPostProcessor implements BeanPostProcessor {
 		return bean;
 	}
 
+	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 		return bean;
 	}

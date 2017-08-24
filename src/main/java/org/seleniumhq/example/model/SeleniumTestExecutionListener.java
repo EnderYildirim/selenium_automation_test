@@ -7,11 +7,12 @@ import org.springframework.test.context.support.AbstractTestExecutionListener;
 public class SeleniumTestExecutionListener extends AbstractTestExecutionListener {
 
 	@Override
-	public void beforeTestMethod(TestContext testContext) throws Exception {
+	public void beforeTestClass(TestContext testContext) throws Exception {
+	    testContext.getApplicationContext().getBean(SeleniumTestScope.class).reset();
 	}
 
 	@Override
-	public void afterTestMethod(TestContext testContext) throws Exception {
+	public void afterTestClass(TestContext testContext) throws Exception {
 		testContext.getApplicationContext().getBean(WebDriver.class).quit();
 	}
 	
