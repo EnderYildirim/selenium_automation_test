@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 public class PageBeanPostProcessor implements BeanPostProcessor {
 
 	@Autowired
-	private WebDriver driver;
+	private WebDriver webDriver;
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 		if (bean.getClass().isAnnotationPresent(Page.class)) {
-			PageFactory.initElements(driver, bean);
+			PageFactory.initElements(webDriver, bean);
 		}
 		return bean;
 	}
