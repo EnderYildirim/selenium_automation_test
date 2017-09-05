@@ -6,9 +6,11 @@ import org.seleniumhq.example.model.Page;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("seleniumtest")
 public class PageBeanPostProcessor implements BeanPostProcessor {
 
 	@Autowired

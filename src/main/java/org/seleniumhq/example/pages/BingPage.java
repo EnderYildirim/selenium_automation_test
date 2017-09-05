@@ -7,34 +7,33 @@ import org.seleniumhq.example.model.AbstractWebPage;
 import org.seleniumhq.example.model.Page;
 
 @Page
-public class GooglePage extends AbstractWebPage {
+public class BingPage extends AbstractWebPage {
 
     @FindBy(name = "q")
     private WebElement searchBox;
-    
+
     @FindBy(linkText = "www.seleniumhq.org")
     private WebElement seleniumURL;
-    
-    public GooglePage setSearchText(String text) {
+
+    public BingPage setSearchText(String text) {
         searchBox.clear();
         searchBox.sendKeys(text);
         return this;
     }
-    
-    public GooglePage submitSearch() {
+
+    public BingPage submitSearch() {
         searchBox.submit();
         return this;
     }
-    
-    public GooglePage validateSearch() {
+
+    public BingPage validateSearch() {
         Assert.assertTrue(seleniumURL != null);
         return this;
     }
 
     @Override
-    public GooglePage openPage() {
-        webDriver.get("https://www.google.com");
+    public BingPage openPage() {
+        webDriver.get("https://www.bing.com");
         return this;
     }
-    
 }
